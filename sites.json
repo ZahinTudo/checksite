@@ -1,20 +1,20 @@
 [
     {
-    "company_name":"stackoverflow",
-    "mail_id":"info@petscape.io",
-    "contact_number": "+919535383084",
-    "website_url": "https://stackoverflow.com/"
-},
+        "company_name":"stackoverflow",
+        "mail_id":"ex@mail.com",
+        "contact_number": "+919535383084",
+        "website_url": "https://stackoverflow.com/"
+    },
     {
-    "company_name":"stackoverflow",
-    "mail_id":"info@petscape.io",
-    "contact_number": "+919535383084",
-    "website_url": "https://www.geeksforgeeks.org/how-to-use-an-es6-import-in-node-js/"
-},
+        "company_name":"stackoverflow",
+        "mail_id":"ex@mail.com",
+        "contact_number": "+919535383084",
+        "website_url": "https://www.geeksforgeeks.org/how-to-use-an-es6-import-in-node-js/"
+    },
     {
-    "company_name":"stackoverflow",
-    "mail_id":"info@petscape.io",
-    "contact_number": "+919535383084",
-    "website_url": "https://medium.com/"
-}
+        "company_name":"meium-wrong-site",
+        "mail_id":"zahingames52@gmail.com",
+        "contact_number": "+919535383084",
+        "website_url": "https://meium.com/"
+    }
 ]

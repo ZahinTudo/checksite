@@ -5,6 +5,7 @@ require("dotenv").config();
 const port = process.env.PORT || 5000;
 const http = require("http");
 const https = require("https");
+require("./checking");
 
 app.use(cors());
 app.use(express.json());
@@ -12,7 +13,7 @@ app.use(express.json());
 const checkWebsite = async (url, callback) => {
   https
     .get(url, function (res) {
-      console.log(url, res.statusCode);
+      //   console.log(url, res.statusCode);
       return callback(res.statusCode === 200);
     })
     .on("error", function (e) {
@@ -24,7 +25,7 @@ const Run = async () => {
   try {
     app.get("/check", async (req, res) => {
       var check = await checkWebsite(req.query.Website, (status) => {
-        console.log(status);
+        // console.log(status);
         res.send({ site: req.query.Website, status });
       });
     });
