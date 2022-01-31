@@ -13,20 +13,21 @@ app.use(express.json());
 const checkWebsite = async (url, callback) => {
   https
     .get(url, function (res) {
-      //   console.log(url, res.statusCode);
-      return callback(res.statusCode === 200);
+      console.log(url, res.statusCode, res.statusMessage);
+      return callback(res.statusCode === 200, res.statusMessage);
     })
     .on("error", function (e) {
-      return callback(false);
+    //   console.log(e.message);
+      return callback(false, e.message);
     });
 };
 
 const Run = async () => {
   try {
     app.get("/check", async (req, res) => {
-      var check = await checkWebsite(req.query.Website, (status) => {
+      var check = await checkWebsite(req.query.Website, (status, message) => {
         // console.log(status);
-        res.send({ site: req.query.Website, status });
+        res.send({ site: req.query.Website, status, message });
       });
     });
   } finally {

@@ -1,21 +1,35 @@
-const data = require("./sites.json");
+// const data = require("./sites.json");
 const axios = require("axios");
 const sendingMail = require("./Email.js");
+const getData = async () => {
+  const data = await axios
+    .get(
+      "https://s3.ap-southeast-1.amazonaws.com/tudotech.in/files/SiteChecker.json"
+    )
+    .then((res) => res.data);
+  //   console.log(data);
+  return data;
+};
 
 const checking = ({ website_url, mail_id }) => {
-  setInterval(() => {
+  (function checkInterval() {
     axios
       .get(`http://localhost:5000/check?Website=${website_url}`)
       .then((result) => {
         const data = result.data;
+        // console.log(data);
         if (!data.status) {
-          sendingMail(mail_id);
-        } else console.log(data);
+          sendingMail(website_url, mail_id, data.message);
+        //   console.log(website_url, mail_id, data.message);
+        } else console.log("what", data);
       });
-  }, 10000);
+    setTimeout(checkInterval, 6 * 60 * 60 * 1000);
+  })();
 };
 
-const callingFunction = () => {
+const callingFunction = async () => {
+  const data = await getData();
+  //   console.log("data", data);
   data.map((items) => {
     checking(items);
   });
