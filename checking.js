@@ -22,10 +22,10 @@ const checking = ({ website_url, mail_id }) => {
         // console.log(data);
         if (!data.status) {
           sendingMail(website_url, mail_id, data.message);
-            // console.log(website_url, mail_id, data.message);
+          // console.log(website_url, mail_id, data.message);
         } else console.log("what", data);
       });
-    setTimeout(checkInterval, 3 * 60 * 1000);
+    setTimeout(checkInterval, 21600000);
   })();
 };
 

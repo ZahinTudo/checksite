@@ -11,7 +11,7 @@ var transporter = nodemailer.createTransport({
 const sendingMail = (site, to_email, error_message) => {
   var mailOptions = {
     from: "tudotech91@gmail.com",
-    to: "zahingames52@gmail.com",
+    to: to_email,
     subject: "Website down notification",
     html: `<h1 style="font-weight:bold; color:red;">Site: ${site} not Running </h1>
     <p>Please check your site! It's not running properly</p>
